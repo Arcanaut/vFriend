@@ -25,14 +25,9 @@ var sess = {
     store: new SequelizeStore({
         db: sequelize,
       }),
-  }
+}
   
   app.use(session(sess));
-
-  const handlebars = expressHandlebars.create({ helpers });
-
-  app.engine('handlebars', hbs.engine);
-  app.set('view engine', 'handlebars');
   
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
