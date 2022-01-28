@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Player } = require('../../models');
+const sequelize = require('../../config/connection');
 
 router.get('/', (req, res) =>{
     Player.findAll()
