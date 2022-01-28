@@ -4,7 +4,12 @@ const bcrypt = require('bcrypt');
 
 // create playeer model
 
-class Player extends Model{}
+class Player extends Model{
+    // set up method to run on users instance data to check plaintext pw with hashed pw
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
+}
 
 //define table columns and configurations
 Player.init(
@@ -43,10 +48,8 @@ Player.init(
             async beforeCreate(newPlayerData) {
                 newPlayerData.password = await bcrypt.hash(newPlayerData.password, 10);
                 return newPlayerData;
-            }
-        },
-        // same hashing hook but for beforeupdating a player
-        hooks: {
+            }, 
+
             async beforeUpdate(updatedPlayerData) {
                 updatedPlayerData.password = await bcrypt.hash(updatedPlayerData.password, 10);
                 return updatedPlayerData;
