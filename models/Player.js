@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 // create playeer model
 
@@ -37,6 +38,20 @@ Player.init(
         }
     },
     {
+        // password hashing hook, beforecreating player, async because hashing is cpu intensive
+        hooks: {
+            async beforeCreate(newPlayerData) {
+                newPlayerData.password = await bcrypt.hash(newPlayerData.password, 10);
+                return newPlayerData;
+            }
+        },
+        // same hashing hook but for beforeupdating a player
+        hooks: {
+            async beforeUpdate(updatedPlayerData) {
+                updatedPlayerData.password = await bcrypt.hash(updatedPlayerData.password, 10);
+                return updatedPlayerData;
+            }
+        },
         // table configurations 
 
         //pass in imported sequelize connection (direct connection to our database)

@@ -3,7 +3,9 @@ const { Player } = require('../../models');
 const sequelize = require('../../config/connection');
 
 router.get('/', (req, res) =>{
-    Player.findAll()
+    Player.findAll({
+        attributes: { exclude: ['password'] }
+    })
         .then(dbPlayerData => res.json(dbPlayerData))
         .catch(err => {
             console.log(err);
@@ -15,7 +17,8 @@ router.get('/:id', (req, res) => {
     Player.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        attributes: { exclude: ['password'] }
     })
     .then(dbPlayerData => {
         if (!dbPlayerData) {
@@ -49,6 +52,7 @@ router.put('/:id', (req, res) => {
 
     // if req.body has exact same key/value pairs to match the model, you can just use req.body
     Player.update(req.body, {
+        individualHooks: true,
         where: {
             id: req.params.id
         }
