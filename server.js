@@ -9,14 +9,14 @@ const SequelizeStore = require("connect-session-sequelize")(
     connect.session.Store
   );
 
-//from files
+//non npms
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 
-
+//starting express and assigning port
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+//create session
 var sess = {
     secret: 'Super Top secret',
     cookie: {},
@@ -26,9 +26,9 @@ var sess = {
         db: sequelize,
       }),
 }
-  
+//starting session with the sess variable 
 app.use(session(sess));
-
+//initializing engine for handlebars files to be read by express
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 
