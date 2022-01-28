@@ -3,7 +3,7 @@ const path = require('path');
 //Requiring express(session && handlebars)
 const express = require('express');
 const session = require('express-session');
-const expressHandlebars = require('express-handlebars');
+const exphbs = require('express-handlebars');
 //connecting session to sequelize
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
@@ -27,7 +27,8 @@ var sess = {
 //starting session with the sess variable 
 app.use(session(sess));
 //initializing engine for handlebars files to be read by express
-app.engine('handlebars', engine());
+const hbs = exphbs.create({});
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
