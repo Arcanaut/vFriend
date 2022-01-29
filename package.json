@@ -11,7 +11,8 @@
     "sequelize": "^6.14.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "name": "group-project-2",
   "description": "",
