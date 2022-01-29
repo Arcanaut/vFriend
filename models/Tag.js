@@ -14,11 +14,17 @@ Tag.init(
         },
         tag_name: {
             type: DataTypes.STRING
+        },
+        player_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'player',
+                key: 'id'
+            }
         }
     },
     {
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'tag',
