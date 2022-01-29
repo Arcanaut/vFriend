@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 DROP DATABASE IF EXISTS vriend_db;
 
 USE vriend_db;
@@ -19,7 +18,3 @@ CREATE TABLE player(
     REFERENCES player(player_id)
     ON DELETE SET NULL,
 )
-=======
-DROP DATABASE IF EXISTS group_project_2_db;
-CREATE DATABASE group_project_2_db;
->>>>>>> feature/initial
