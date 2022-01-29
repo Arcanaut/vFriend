@@ -1,6 +1,6 @@
 const { Tag } = require('../models');
 
-const tagDate = [
+const tagData = [
     {
         tag_name: 'tag1',
         user_id:4
