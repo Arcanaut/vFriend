@@ -33,6 +33,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
   
 
