@@ -4,10 +4,8 @@ const { Tag, Player, Game } = require('../../models');
 router.get('/', (req, res) => {
     // Find all Tag
     Tag.findAll({
-        attribute: [ 'id', 'tag_name'],
         include: {
-            model: Player,
-            attribute: [ 'id', 'username', 'email']
+            model: Player
         }
     }).then(dbTagData => res.json(dbTagData))
     .catch(err => {
@@ -40,9 +38,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     // Create new Tag
-    Tag.create({
-        tag_name: req.body.tag_name
-    })
+    Tag.create(req.body)
     .then(dbTagData => {
         res.json(dbTagData);
     })
