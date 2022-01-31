@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "seed": "node seeds/index.js"
+    "seed": "node seeds/index.js",
+    "watch":"nodemon server.js"
   },
   "name": "group-project-2",
   "description": "",
