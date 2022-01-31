@@ -1,7 +1,9 @@
 <html>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js">
 <link rel="stylesheet" href="style.css" />
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js" /> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Landing Page</title>
 
@@ -22,14 +24,45 @@
             <button data-modal-target="#modal" id="sign-up" class="btn">Sign Up</button>
             <button data-modal-target="#modal" id="login" class="btn">Login</button>
             <div class="modal" id="modal">
-            <div class="modal-header" id="sign-up-header">
-                <div class="title">Sign Up</div>
-                <button data-close-button class="close-button">&times;</button>
-             </div>
-             <div class="modal-body" id="sign-up-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Cupiditate eligendi esse
-                necessitatibus veritatis aperiam laudantium, adipisci ut odio ipsam nobis illo libero porro possimus
-                numquam veniam repellat iste? Recusandae, velit.</div>
+                <div class="modal-header" id="sign-up-header">
+                    <div class="title">Sign Up</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body" id="sign-up-body">
+                    <form class="login-form">
+                        <div>
+                            <label for="email-login">email:</label>
+                            <input type="text" id="email-login" />
+                        </div>
+                        <div>
+                            <label for="password-login">password:</label>
+                            <input type="password" id="password-login" />
+                        </div>
+                        <div>
+                            <button type="submit">login</button>
+                        </div>
+                    </form>
+
+                    <form class="signup-form">
+                        <div>
+                            <label for="username-signup">username:</label>
+                            <input type="text" id="username-signup" />
+                        </div>
+                        <div>
+                            <label for="email-signup">email:</label>
+                            <input type="text" id="email-signup" />
+                        </div>
+                        <div>
+                            <label for="password-signup">password:</label>
+                            <input type="password" id="password-signup" />
+                        </div>
+                        <div>
+                            <button type="submit">signup</button>
+                        </div>
+                    </form>
+
+                    <script src="/javascript/login.js"></script>
+                </div>
             </div>
         </div>
         <div id="overlay"></div>
