@@ -30,6 +30,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log(req.body);
     // expects a {username: '..', email: '..', password: '..'}
     Player.create({
         username: req.body.username,
@@ -42,6 +43,26 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     })
 });
+
+router.post('/login', (req, res) => {
+    Player.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(dbPlayerData => {
+        if(!dbPlayerData) {
+            res.status(400).json({ message: 'No user with that email address' });
+            return;
+        }
+        
+        const validPassword = dbPlayerData.checkPassword(req.body.password);
+        if (!validPassword) {
+            res.status(400).json({ message: 'incorrect password!' });
+            return;
+        }
+        res.json({ user: dbPlayerData, message: 'you are now logged in!' });
+    })
+})
 
 router.put('/:id', (req, res) => {
     // expects a {username: '..' email: '..', password: '...' for updating}
