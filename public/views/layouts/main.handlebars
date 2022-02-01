@@ -1,0 +1,67 @@
+<html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js">
+<link rel="stylesheet" href="../../stylesheets/style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+
+</head>
+
+<body>
+    <header>
+        <h1>Don't just find someone to game with. Find a vFriend</h1>
+    </header>
+    <div class="card">
+        <div class="card-header">
+            <h2>vFriend</h2>
+        </div>
+        
+        <div class="card-footer">
+            <button data-modal-target="#signupModal" id="signUp" class="btn">Sign Up</button>
+            <button id="login" class="btn" onclick= "loginFunction()" >Login</button>
+            <div class="modal" id="signupModal">
+                <form class="signup-form">
+                    <div>
+                      <label for="username-signup">username:</label>
+                      <input type="text" id="username-signup" />
+                    </div>
+                    <div>
+                      <label for="email-signup">email:</label>
+                      <input type="text" id="email-signup" />
+                    </div>
+                    <div>
+                      <label for="password-signup">password:</label>
+                      <input type="password" id="password-signup" />
+                    </div>
+                    <div>
+                      <button type="submit">signup</button>
+                    </div>
+                  </form>
+
+            </div>
+            {{!-- <div class="modal-header" id="sign-up-header">
+                <div class="title">
+                    Sign Up
+                </div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body" id="sign-up-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Cupiditate eligendi esse
+                necessitatibus veritatis aperiam laudantium, adipisci ut odio ipsam nobis illo libero porro possimus
+                numquam veniam repellat iste? Recusandae, velit.
+            </div> --}}
+        </div>
+
+        <div id="overlay"></div>
+    </div>
+    </div>
+    <script src="../../javascript/login.js"></script>
+    <script src= "../views/layouts/login.handlebars"></script> 
+    
+    <script src="../../javascript/signup.js"></script>
+    <script src="./signup.handlebars"></script>
+    <script src="modal.js"></script>
+</body>
+
+</html>
