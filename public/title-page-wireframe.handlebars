@@ -1,7 +1,7 @@
+@ -1,7 +1,9 @@
 <html>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Landing Page</title>
@@ -16,12 +16,14 @@
         <div class="card-header">
             <h2>vFriend</h2>
         </div>
-        
+        <div class="card-body">
+
+        </div>
         <div class="card-footer">
-          <button data-modal-target="#signupModal" id="signUp" class="btn">Sign Up</button>
-            <button id="login" class="btn" onclick= "loginFunction()" >Login</button>
-            <div class="modal" id="signupModal">
-                
+            <button data-modal-target="#modal" id="sign-up" class="btn">Sign Up</button>
+            <button id="login" class="btn">Login</button>
+            <div class="modal" id="modal">
+
                 <form class="signup-form">
                     <div>
                       <label for="username-signup">username:</label>
@@ -53,21 +55,12 @@
                 numquam veniam repellat iste? Recusandae, velit.
             </div>
         </div>
-
         <div id="overlay"></div>
     </div>
     </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../javascript/login.js"></script>
-    <script src="../javascript/signup.js"></script>
+    <script src="/public/javascript/login.js"></script>
     <script src="modal.js"></script>
-    <!-- <script src= "../views/layouts/login.handlebars"></script> -->
-    
-    <!--handlebars-->
-    <script src="../../views/signup.handlebars"></script>
-    <script src="../../views/layouts/main.handlebars"></script>
+    <script src= "../views/layouts/login.handlebars"></script>
+</body>
 
-  </body>
 </html>

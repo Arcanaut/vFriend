@@ -21,7 +21,7 @@
         <div class="card-footer">
             <button data-modal-target="#modal" id="sign-up" class="btn">Sign Up</button>
             <button id="login" class="btn">Login</button>
-            <div class="modal" id="modal">{{login}}</div>
+            <div class="modal" id="modal">{{{>login}}}</div>
             <div class="modal-header" id="sign-up-header">
                 <div class="title">Sign Up</div>
                 <button data-close-button class="close-button">&times;</button>
@@ -34,6 +34,7 @@
         <div id="overlay"></div>
     </div>
     </div>
+    
     <script src="/public/javascript/login.js"></script>
     <script src="./modal.js"></script>
 </body>
