@@ -1,9 +1,6 @@
 DROP DATABASE IF EXISTS vriend_db;
-CREATE DATABASE vriend_db;
-USE vriend_db;
 
--- DROP TABLE IF EXISTS game;
--- DROP TABLE IF EXISTS player;
+USE vriend_db;
 
 -- CREATE TABLE game(
 --     game_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY,
@@ -15,12 +12,6 @@ USE vriend_db;
 --     player_name VARCHAR(30) NOT NULL,
 --     player_email VARCHAR(30) NOT NULL,
 --     player_password VARCHAR(30) NOT NULL,
---     tag_casual BOOLEAN,
---     tag_forfun BOOLEAN,
---     tag_ranked BOOLEAN,
---     tag_experienced BOOLEAN,
---     tag_new BOOLEAN,
---     tag_microphone BOOLEAN,
 --     player_bio VARCHAR(120),
 --     player_friend INTEGER,
 --     FOREIGN KEY (player_friend)

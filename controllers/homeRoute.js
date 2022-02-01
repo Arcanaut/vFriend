@@ -18,6 +18,15 @@ router.get('/', async (req,res) => {
 // Login
 
 //
+router.get('/', function(req, res) {
+    res.render('homepage')
+});
+
+router.get('/signup', function(req, res) {
+    res.render('signup')
+});
+
+
 
 
 module.exports = router;

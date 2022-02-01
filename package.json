@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "seed": "node seeds/index.js"
+    "seed": "node seeds/index.js",
+    "watch":"nodemon server.js"
   },
   "name": "group-project-2",
   "description": "",
@@ -27,6 +28,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Arcanaut/Group-Project-2/issues"
-  },
-  "homepage": "https://github.com/Arcanaut/Group-Project-2#readme"
+  }
 }
