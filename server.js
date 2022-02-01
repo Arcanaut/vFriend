@@ -6,14 +6,21 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 //connecting session to sequelize
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+//socket.io npm
+const socketio = require('socket.io');
+const http = require('http');
 
 //non npms
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 
+
 //starting express and assigning port
 const app = express();
+//passing in express to make it a socket server also
+const server = http.createServer(app);
 const PORT = process.env.PORT || 3001;
+const io = socketio(server);
 //create session
 var sess = {
     secret: 'Super Top secret',
@@ -39,6 +46,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+//run when client connects
+io.on('connection', socket => {
+
+  socket.emit('message', 'Welcome to Chat');
+
+  socket.broadcast.emit('message', 'A user has joined the chat');
+
+  //Runs on disconnect
+  socket.on('disconnect', () => {
+    io.emit('message', 'A user has left the chat');
+  })
+  io.emit();
+
+
+})
+
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  server.listen(PORT, () => console.log('Now listening'));
 });
