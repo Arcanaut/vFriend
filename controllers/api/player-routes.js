@@ -30,17 +30,54 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log(req.body);
     // expects a {username: '..', email: '..', password: '..'}
     Player.create({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
     })
-    .then(dbPlayerData => res.json(dbPlayerData))
+    .then(dbPlayerData => {
+        req.session.save(() => {
+            req.session.user_id = dbPlayerData.id;
+            req.session.username = dbPlayerData.username;
+            req.session.loggedIn = true;
+
+            res.json(dbPlayerData);
+        });
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     })
+});
+
+router.post('/login', (req, res) => {
+    Player.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(dbPlayerData => {
+        if(!dbPlayerData) {
+            res.status(400).json({ message: 'No user with that email address' });
+            return;
+        }
+        
+        const validPassword = dbPlayerData.checkPassword(req.body.password);
+        if (!validPassword) {
+            res.status(400).json({ message: 'incorrect password!' });
+            return;
+        }
+
+        req.session.save(() => {
+            //declare session variables 
+            req.session.user_id = dbPlayerData.id;
+            req.session.username = dbPlayerData.username;
+            req.session.loggedIn = true;
+            
+            res.json({ user: dbPlayerData, message: 'you are now logged in!' });
+        });
+    });
 });
 
 router.put('/:id', (req, res) => {
@@ -82,6 +119,17 @@ router.delete('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+});
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
 });
 
 module.exports = router;

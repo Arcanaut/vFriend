@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+
+</head>
+
+<body>
+  <header>
+    <h1>Don't just find someone to game with. Find a vFriend</h1>
+  </header>
+
+
+
+
+  <!-- modal trigger -->
+  <section class="bg-light">
+    <div class="container">
+      <div class="text-center">
+        <h2>vFriend</h2>
+
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <!--Sign up button-->
+          <p class="text-muted my-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, debitis?</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-up-modal">
+            Create an account
+          </button>
+          <!--Sign-in button-->
+          <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#sign-in-modal">
+            Sign in
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--Sign-up Modal-->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Enter your information below</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="signup-form">
+            <div>
+              <label for="username-signup">username:</label>
+              <input type="text" id="username-signup" />
+            </div>
+            <div>
+              <label for="email-signup">email:</label>
+              <input type="email" id="email-signup" />
+            </div>
+            <div>
+              <label for="password-signup">password:</label>
+              <input type="password" id="password-signup" />
+            </div>
+            <div>
+              <button type="submit">submit</button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--End Modal-->
+
+  <!--sign-in Modal-->
+  <div class="modal fade" id="sign-in-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Enter your information below</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="login-form">
+            <div>
+              <label for="email-login">email:</label>
+              <input type="text" id="email-login" />
+            </div>
+            <div>
+              <label for="password-login">password:</label>
+              <input type="password" id="password-login" />
+            </div>
+            <div>
+              <button type="submit">login</button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--End Modal-->
+  </div>
+  </div>
+
+  <!--Required scripts-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../javascript/login.js"></script>
+  <script src="../javascript/signup.js"></script>
+
+</body>
+
+</html>
