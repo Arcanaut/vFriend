@@ -50,9 +50,9 @@ app.use(routes);
 
 //run when client connects
 io.on('connection', socket => {
-  socket.on('joinRoom', (game) => {
+  // socket.on('joinRoom', (game) => {
     
-  })
+  // })
   socket.emit('message', formatMessage(admin,'Welcome to Chat'));
 
   socket.broadcast.emit('message', formatMessage(admin, 'A user has joined the chat'));
