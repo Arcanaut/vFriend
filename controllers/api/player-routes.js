@@ -58,6 +58,8 @@ router.post('/login', (req, res) => {
             email: req.body.email
         }
     }).then(dbPlayerData => {
+        console.log('login player de', dbPlayerData)
+
         if(!dbPlayerData) {
             res.status(400).json({ message: 'No user with that email address' });
             return;
@@ -65,6 +67,8 @@ router.post('/login', (req, res) => {
         
         const validPassword = dbPlayerData.checkPassword(req.body.password);
         if (!validPassword) {
+            console.log('login password check', validPassword)
+
             res.status(400).json({ message: 'incorrect password!' });
             return;
         }
