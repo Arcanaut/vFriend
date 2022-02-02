@@ -29,12 +29,12 @@ router.get('/dashboard', function(req, res) {
         res.redirect('/signup');
         return;
     }
-    res.render('dashboard')
+    res.render('chatfinder')
 });
 
 router.get('/dashboard', function(req, res) {
     console.log(req.session);
-    res.render('dashboard')
+    res.render('chatfinder')
 });
 
 
