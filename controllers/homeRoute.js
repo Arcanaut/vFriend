@@ -16,7 +16,21 @@ router.get('/', async (req,res) => {
 });
 
 router.get('/signup', function(req, res) {
+    if (req.session.loggedIn) {
+        res.redirect('/dashboard');
+        return;
+    }
     res.render('signup')
 });
 
 module.exports = router;
+router.get('/dashboard', function(req, res) {
+    console.log(req.session);
+    res.render('dashboard')
+});
+
+
+
+
+
+
