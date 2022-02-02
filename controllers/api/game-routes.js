@@ -1,16 +1,18 @@
 const router = require('express').Router();
 const { Game, Player } = require('../../models');
 
+// {
+//   attribute: ['id', 'game_title'],
+//   include: {
+//     model: Player,
+//     attribute: [ 'id', 'username', 'email']
+//   }
+// }
 
 router.get('/', (req, res) => {
   // find all games
-  Game.findAll({
-    attribute: ['id', 'game_title'],
-    include: {
-      model: Player,
-      attribute: [ 'id', 'username', 'email']
-    }
-  }).then(dbGameData => res.json(dbGameData))
+  Game.findAll()
+  .then(dbGameData => res.json(dbGameData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -20,10 +22,8 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find one game 
   Game.findOne({
-    attribute: ['id', 'game_title'],
-    include: {
-      model: Player,
-      attribute: [ 'id', 'username', 'email']
+    where: {
+      id: req.params.id
     }
   })
   .then(dbGameData => {

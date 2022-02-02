@@ -5,22 +5,26 @@ const playerData = [
     {
         username: 'username1',
         email: 'email1@gmail.com',
-        password:'password1'
+        password:'password1',
+        game: null
     },
     {
         username: 'username2',
         email: 'email2@gmail.com',
-        password:'password2'
+        password:'password2',
+        game: null
     },
     {
         username: 'username3',
         email: 'email3@gmail.com',
-        password:'password3'
+        password:'password3',
+        game: null
     },
     {
         username: 'username4',
         email: 'email4@gmail.com',
-        password:'password4'
+        password:'password4',
+        game: null
     },
 
 ];

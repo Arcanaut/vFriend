@@ -6,9 +6,10 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 //connecting session to sequelize
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-//socket.io npm
+//socket.io requires
 const socketio = require('socket.io');
 const http = require('http');
+const formatMessage = require('./utils/messages')
 
 //non npms
 const routes = require('./controllers');
@@ -21,6 +22,7 @@ const app = express();
 const server = http.createServer(app);
 const PORT = process.env.PORT || 3001;
 const io = socketio(server);
+const admin = 'NightBot';
 //create session
 var sess = {
     secret: 'Super Top secret',
@@ -49,16 +51,18 @@ app.use(routes);
 //run when client connects
 io.on('connection', socket => {
 
-  socket.emit('message', 'Welcome to Chat');
+  socket.emit('message', formatMessage(admin,'Welcome to Chat'));
 
-  socket.broadcast.emit('message', 'A user has joined the chat');
+  socket.broadcast.emit('message', formatMessage(admin, 'A user has joined the chat'));
 
   //Runs on disconnect
   socket.on('disconnect', () => {
-    io.emit('message', 'A user has left the chat');
+    io.emit('message', formatMessage(admin, 'A user has left the chat'));
   })
-  io.emit();
-
+  
+  socket.on('chatMessage', (msg) => {
+    io.emit('message', formatMessage('User', msg));
+  })
 
 })
 

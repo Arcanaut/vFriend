@@ -1,41 +1,37 @@
-    <div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="row container d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="card card-bordered">
-                    <div class="card-header">
-                        <h4 class="card-title"><strong>Chat, make a friend!</strong></h4>
-                    </div>
-                    <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important;">
-                        <div class="media media-chat"> <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
-                            <div class="media-body">
-                                <p>Hi</p>
-                                <p>How are you ...???</p>
-                                <p>What are you doing tomorrow?<br> Can we come up a bar?</p>
-                                <p class="meta"><time datetime="2018">23:58</time></p>
-                            </div>
-                        </div>
-                        <div class="media media-meta-day">Today</div>
-                        <div class="media media-chat media-chat-reverse">
-                            <div class="media-body">
-                                <p>Hiii, I'm good.</p>
-                                <p>How are you doing?</p>
-                                <p>Long time no see! Tomorrow office. will be free on sunday.</p>
-                                <p class="meta"><time datetime="2018">00:06</time></p>
-                            </div>
-                        </div>
-                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
-                            <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                        </div>
-                        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
-                            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
-                        </div>
-                    </div>
-                    <div class="publisher bt-1 border-light"> <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="..."> <input class="publisher-input" type="text" placeholder="Write something"> <span class="publisher-btn file-group"> <i class="fa fa-paperclip file-browser"></i> <input type="file"> </span> <a class="publisher-btn" href="#" data-abc="true"><i class="fa fa-smile"></i></a> <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a> </div>
-                </div>
-            </div>
-        </div>
+  <div class="chat-container">
+    <header class="chat-header">
+      <h1><i class="fas fa-smile"></i> ChatCord</h1>
+      <a href="index.html" class="btn">Leave Room</a>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Room Name:</h3>
+        <h2 id="room-name">JavaScript</h2>
+        <h3><i class="fas fa-users"></i> Users</h3>
+        <ul id="users">
+          <li>Brad</li>
+          <li>John</li>
+          <li>Mary</li>
+          <li>Paul</li>
+          <li>Mike</li>
+        </ul>
+      </div>
+      <div class="chat-messages">
+          <!--Dynamic messages happen here -->
+      </div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+      </form>
     </div>
-</div>
+  </div>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/chat.js"></script>

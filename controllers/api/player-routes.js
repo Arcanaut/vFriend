@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const req = require('express/lib/request');
 const { Player } = require('../../models');
 
 router.get('/', (req, res) =>{
@@ -84,11 +85,17 @@ router.put('/:id', (req, res) => {
     // expects a {username: '..' email: '..', password: '...' for updating}
 
     // if req.body has exact same key/value pairs to match the model, you can just use req.body
-    Player.update(req.body, {
-        where: {
-            id: req.params.id
-        }
-    })
+    console.log(req.body.game && req.params.id);
+    Player.update(
+        {
+            game: req.body.game,
+        },
+        {
+            where: {
+                id: req.params.id
+            },
+        }   
+    )
     .then(dbPlayerData => {
         if (!dbPlayerData[0]) {
             res.status(404).json({ message: 'no player found with this id' });
