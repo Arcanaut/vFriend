@@ -2,6 +2,10 @@ const socket = io();
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
 
+const game = document.currentScript.getAttribute('game');
+console.log(game);
+
+socket.emit('joinRoom', game);
 
 socket.on('message', message => {
     outputMessage(message);

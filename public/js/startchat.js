@@ -17,7 +17,7 @@ const startchat = async (event, id) => {
                 headers: { 'Content-Type': 'application/json' }
             });
             if(response.ok){
-            document.location.replace('/chat/groupchat');
+            // document.location.replace('/chat/groupchat');
             } else {
                 alert(response.statusText);
             }

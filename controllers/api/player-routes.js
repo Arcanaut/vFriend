@@ -101,6 +101,9 @@ router.put('/:id', (req, res) => {
             res.status(404).json({ message: 'no player found with this id' });
             return;
         }
+        req.session.save(() => {
+            req.session.game = dbPlayerData.game;
+        })
         res.json(dbPlayerData);
     })
     .catch(err => {
