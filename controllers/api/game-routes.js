@@ -8,9 +8,14 @@ router.get('/', (req, res) => {
     attribute: ['id', 'game_title'],
     include: {
       model: Player,
-      attribute: [ 'id', 'username', 'email']
+      attribute: ['id', 'username', 'email']
     }
-  }).then(dbGameData => res.json(dbGameData))
+  }).then(dbGameData => {
+    if (dbGameData) {
+      const formatGame = dbGameData.get({ plain: true })
+      res.render('games', { formatGame })
+    }
+  })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -23,20 +28,20 @@ router.get('/:id', (req, res) => {
     attribute: ['id', 'game_title'],
     include: {
       model: Player,
-      attribute: [ 'id', 'username', 'email']
+      attribute: ['id', 'username', 'email']
     }
   })
-  .then(dbGameData => {
-    if (!dbGameData) {
-      res.status(404).json({ message: 'No game found with this id' });
-      return;
-    }
-    res.json(dbGameData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then(dbGameData => {
+      if (!dbGameData) {
+        res.status(404).json({ message: 'No game found with this id' });
+        return;
+      }
+      res.json(dbGameData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post('/', (req, res) => {
@@ -44,13 +49,13 @@ router.post('/', (req, res) => {
   Game.create({
     game_title: req.body.game_title
   })
-  .then(dbGameData => {
+    .then(dbGameData => {
       res.json(dbGameData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.put('/:id', (req, res) => {
@@ -61,17 +66,17 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbGameData => {
-    if (!dbGameData) {
-      res.status(404).json({ message: 'No Game found with this id' });
-      return;
-    }
-    res.json(dbGameData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  })
+    .then(dbGameData => {
+      if (!dbGameData) {
+        res.status(404).json({ message: 'No Game found with this id' });
+        return;
+      }
+      res.json(dbGameData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
 });
 
 router.delete('/:id', (req, res) => {
@@ -81,17 +86,17 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbGameData => {
-    if (!dbGameData) {
-      res.status(404).json({ message: 'No Game found with this id' });
-      return;
-    }
-    res.json(dbGameData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  })
+    .then(dbGameData => {
+      if (!dbGameData) {
+        res.status(404).json({ message: 'No Game found with this id' });
+        return;
+      }
+      res.json(dbGameData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
 });
 
 module.exports = router;

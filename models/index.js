@@ -10,6 +10,9 @@ Tag.belongsTo(Player, {
 Player.hasMany(Tag, {
     foreignKey: 'player_id'
 });
+Game.belongsTo(Player, {
+    foreignKey: 'player_id'
+});
 
 module.exports = {
     Player,
