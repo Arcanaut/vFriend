@@ -47,20 +47,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 //run when client connects
-// io.on('connection', socket => {
+io.on('connection', socket => {
 
-//   socket.emit('message', 'Welcome to Chat');
+  socket.emit('message', 'Welcome to Chat');
 
-//   socket.broadcast.emit('message', 'A user has joined the chat');
+  socket.broadcast.emit('message', 'A user has joined the chat');
 
-//   //Runs on disconnect
-//   socket.on('disconnect', () => {
-//     io.emit('message', 'A user has left the chat');
-//   })
-//   io.emit();
+  //Runs on disconnect
+  socket.on('disconnect', () => {
+    io.emit('message', 'A user has left the chat');
+  })
+  io.emit();
 
 
-// })
+})
 
 sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () => console.log('Now listening'));
