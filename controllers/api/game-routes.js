@@ -19,24 +19,33 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find one game 
-  Game.findOne({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(dbGameData => {
+  try {
+    console.log(req.params.id);
+    const dbGameData = await Game.findOne(
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    );
     if (!dbGameData) {
-      res.status(404).json({ message: 'No game found with this id' });
-      return;
+        res.status(404).json({ message: 'no games are found' });
+        return;
     }
-    res.json(dbGameData);
-  })
-  .catch(err => {
+    console.log(dbGameData);
+    req.session.save(() => {
+      req.session.game = dbGameData.game_title;
+      console.log(req.session.game);
+      res
+        .status(200)
+        .json({ user: dbGameData, message: 'Your game is saved' });
+    });
+  } catch (err) {
     console.log(err);
     res.status(500).json(err);
-  });
+  }
 });
 
 router.post('/', (req, res) => {

@@ -7,18 +7,14 @@ const startchat = async (event, id) => {
     console.log(player_id);
     var game = gameInput.options[gameInput.selectedIndex].value.trim();
     if (game !== "Choose a game...") {
-        console.log(game);
         if(element.parentNode.id == "btnOneOnOne"){
             //work in progress
         }else if(element.parentNode.id == "btnGroup"){
-            const response = await fetch('/api/players/'+player_id, {
-                method: 'put',
-                body: JSON.stringify({
-                    game,
-                }),
+            const response = await fetch('/api/games/'+game, {
+                method: 'get',
                 headers: { 'Content-Type': 'application/json' }
             });
-            if(response.ok){
+            if(response){
             document.location.replace('/chat/groupchat');
             } else {
                 alert(response.statusText);

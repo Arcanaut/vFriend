@@ -1,7 +1,7 @@
 const socket = io();
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
-const userList = document.querySelector('users');
+const userList = document.getElementById('users');
 
 const game = document.currentScript.getAttribute('game');
 const playername = document.currentScript.getAttribute('username');
@@ -13,6 +13,7 @@ socket.emit('joinRoom', {username, room});
 
 //Get room and users
 socket.on('roomUsers', (users) =>{
+    console.log(users);
     outputUsers(users);
 });
 
@@ -50,7 +51,13 @@ function outputMessage(message) {
 };
 
 function outputUsers(users){
+    var listUsers = [];
+    for (let i = 0; i < users.length; i++) {
+        const element = users[i];
+        listUsers.push(element.username);
+    }
+    console.log(listUsers);
     userList.innerHTML = `
-    ${users.map(user => `<li>${user.username}</li>`).join()}
+        ${listUsers.map(x => `<li>${x}</li>`).join(' ')}
     `;
-};
+}

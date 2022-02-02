@@ -81,43 +81,6 @@ router.post('/login', (req, res) => {
     });
 });
 
-router.put('/:id', async (req, res) => {
-    // expects a {username: '..' email: '..', password: '...' for updating}
-
-    // if req.body has exact same key/value pairs to match the model, you can just use req.body
-    try {
-        const dbPlayerData = await Player.update(
-            {
-                game: req.body.game,
-            },
-            {
-                where: {
-                    id: req.params.id
-                }
-            }
-        );
-        if (!dbPlayerData[0]) {
-            res.status(404).json({ message: 'no players are found' });
-            return;
-        }
-        console.log(req.body.game);
-        console.log(dbPlayerData.game);
-        console.log(dbPlayerData)
-        req.session.save(() => {
-            console.log('the save function ran');
-            req.session.game = req.body.game;
-            console.log(dbPlayerData);
-            console.log(req.session.game);
-            res
-                .status(200)
-                .json({ user: dbPlayerData, message: 'Your game is saved' });
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
-
 router.delete('/:id', (req, res) => {
     Player.destroy({
         where: {

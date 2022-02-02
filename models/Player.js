@@ -40,10 +40,6 @@ Player.init(
             validate: {
                 len: [5]
             }
-        },
-        game: {
-            type: DataTypes.STRING,
-            allowNull: true,
         }
     },
     {
