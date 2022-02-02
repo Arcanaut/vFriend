@@ -9,7 +9,8 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 //socket.io requires
 const socketio = require('socket.io');
 const http = require('http');
-const formatMessage = require('./utils/messages')
+const formatMessage = require('./utils/messages');
+const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
 
 //non npms
 const routes = require('./controllers');
@@ -50,23 +51,39 @@ app.use(routes);
 
 //run when client connects
 io.on('connection', socket => {
-  // socket.on('joinRoom', (game) => {
-    
-  // })
-  socket.emit('message', formatMessage(admin,'Welcome to Chat'));
+  socket.on('joinRoom', ({username, room}) => {
+    //the user when in chat gets a socket id from there connection This is NOT the users id from the database
+    const user = userJoin(socket.id, username, room);
 
-  socket.broadcast.emit('message', formatMessage(admin, 'A user has joined the chat'));
+    socket.join(user.room);
 
+    //welcome message
+    socket.emit('message', formatMessage(admin,'Welcome to Chat'));
+    //broadcast that someone has joined
+    socket.broadcast
+    .to(user.room)
+    .emit('message', formatMessage(admin, `${user.username} has joined the chat`));
+
+    //send user and room info
+    io.to(user.room).emit('roomUsers', getRoomUsers(user.room));
+
+  });
+
+  socket.on('chatMessage', (msg) => {
+    const user = getCurrentUser(socket.id);
+    io.to(user.room).emit('message', formatMessage(user.username, msg))
+  });
   //Runs on disconnect
   socket.on('disconnect', () => {
-    io.emit('message', formatMessage(admin, 'A user has left the chat'));
-  })
-  
-  socket.on('chatMessage', (msg) => {
-    io.emit('message', formatMessage('User', msg));
-  })
+    const user = userLeave(socket.id);
+      if(user){
+        io.to(user.room).emit('message', formatMessage(admin, `${user.username} has left the chat`));
 
-})
+        //send user and room info
+      io.to(user.room).emit('roomUsers', getRoomUsers(user.room));
+      }
+  });
+});
 
 sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () => console.log('Now listening'));

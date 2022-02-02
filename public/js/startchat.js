@@ -19,7 +19,7 @@ const startchat = async (event, id) => {
                 headers: { 'Content-Type': 'application/json' }
             });
             if(response.ok){
-            // document.location.replace('/chat/groupchat');
+            document.location.replace('/chat/groupchat');
             } else {
                 alert(response.statusText);
             }
@@ -27,8 +27,6 @@ const startchat = async (event, id) => {
             console.log()
             return;
         }
-        
-        
         console.log(`Run ${element.parentNode.id}`);
     }else{
         alert("Please select a game before selecting a chatroom.")

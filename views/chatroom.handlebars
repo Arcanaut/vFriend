@@ -6,13 +6,10 @@
     <main class="chat-main">
       <div class="chat-sidebar">
         <h3><i class="fas fa-comments"></i> Room Name:</h3>
-        <h2 id="room-name"></h2>
+        <h2 id="room-name">{{game}}</h2>
         <h3><i class="fas fa-users"></i> Users</h3>
         <ul id="users">
-          <li>{{loggedIn}}</li>
-          <li>{{username}}</li>
-          <li>{{user_id}}</li>
-          <li>{{game}}</li>
+          <!--Dynamics users in chat -->
         </ul>
       </div>
       <div class="chat-messages">
@@ -33,4 +30,4 @@
     </div>
   </div>
 <script src="/socket.io/socket.io.js"></script>
-<script src="/js/chat.js" game="{{game}}"></script>
+<script src="/js/chat.js" game="{{game}}" username="{{username}}" "></script>
