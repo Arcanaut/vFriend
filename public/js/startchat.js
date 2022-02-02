@@ -3,8 +3,6 @@ const startchat = async (event, id) => {
     var gameInput = document.querySelector("#inputGroupSelect01");
     event.preventDefault();
     var element = event.target;
-    var player_id = id.valueOf();
-    console.log(player_id);
     var game = gameInput.options[gameInput.selectedIndex].value.trim();
     if (game !== "Choose a game...") {
         if(element.parentNode.id == "btnOneOnOne"){
