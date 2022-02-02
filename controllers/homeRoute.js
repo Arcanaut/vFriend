@@ -25,6 +25,14 @@ router.get('/signup', function(req, res) {
 
 module.exports = router;
 router.get('/dashboard', function(req, res) {
+    if (!req.session.loggedIn) {
+        res.redirect('/signup');
+        return;
+    }
+    res.render('dashboard')
+});
+
+router.get('/dashboard', function(req, res) {
     console.log(req.session);
     res.render('dashboard')
 });
