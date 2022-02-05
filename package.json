@@ -7,13 +7,15 @@
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
+    "moment": "^2.29.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.14.1"
+    "sequelize": "^6.14.1",
+    "socket.io": "^4.4.1"
   },
   "scripts": {
     "start": "node server.js",
     "seed": "node seeds/index.js",
-    "watch":"nodemon server.js"
+    "watch": "nodemon server.js"
   },
   "name": "group-project-2",
   "description": "",
