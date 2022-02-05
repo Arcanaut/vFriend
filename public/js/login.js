@@ -18,7 +18,7 @@ console.log({email, password});
     if (response.ok) {
       document.location.replace('/chat/chatfinder');
     } else {
-      alert(response.statusText);
+      alert("Invalid login credentials! Please try again.");
     }
   }
 }
