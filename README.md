@@ -26,10 +26,10 @@
   * Moment
 
 ### Contributor
- [Brendan Ahearn](https://github.com/Arcanaut)
- [Shelby Pham](https://github.com/ncp9988)
- [Blake Doghyian](https://github.com/Blakedoghyian)
- [Aaron Ferguson](https://github.com/Optical23)
+* [Brendan Ahearn](https://github.com/Arcanaut)
+* [Shelby Pham](https://github.com/ncp9988)
+* [Blake Doghyian](https://github.com/Blakedoghyian)
+* [Aaron Ferguson](https://github.com/Optical23)
 
 #### Heroku
   [Heroku link](https://peaceful-river-67746.herokuapp.com/)
