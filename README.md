@@ -41,7 +41,7 @@
   <a href="mailto:"> Please feel free to reach out if you have any questions</a>
 
 ### Screenshot
-  ![Screenshot](/Users/chaupham/Desktop/abc/Group-Project-2/public/images/screenshot.png)
+  ![Screenshot](https://github.com/Arcanaut/Group-Project-2/blob/feature/shelbyy/public/images/screenshot.png)
   
 
   
