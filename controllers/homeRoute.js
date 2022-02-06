@@ -17,7 +17,7 @@ router.get('/', async (req,res) => {
 
 router.get('/signup', function(req, res) {
     if (req.session.loggedIn) {
-        res.redirect('/chat/chatfinder');
+        res.redirect('/dashboard');
         return;
     }
     res.render('signup')
