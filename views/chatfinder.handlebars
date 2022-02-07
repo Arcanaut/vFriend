@@ -1,18 +1,44 @@
 <div class="container">
     <div class="col-10 d-flex">
         <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Game Choice</label>
+            <label class="input-group-text" for="inputGroupSelect01">Group Choice</label>
             <select class="form-select" id="inputGroupSelect01">
-                <option selected>Choose a game...</option>
-                <option value="1">game1</option>
-                <option value="2">game2</option>
-                <option value="3">game3</option>
+                <option selected>Choose a group...</option>
+                <option value="1">1-FPS/TPS</option>
+                <option value="2">2-MMO/RPG</option>
+                <option value="3">3-Sports/Other</option>
             </select>
         </div>
     </div>
     <div class="d-flex row justify-content-between align-items-center" id="chatType">
         <button class="chat-btn btn-outline-secondary col-5" type="button" id="btnOneOnOne" onclick="startchat(event, {{user_id}});"><h1>{{game}}One on One</h1></button>
         <button class="chat-btn btn-outline-secondary col-5" type="button" id="btnGroup" onclick="startchat(event, {{user_id}});"><h1>Group</h1</button>
+    </div>
+</div>
+<div class="card-group">
+    <div class="card mx-1">
+        <img class="card-img-top" src="images/fpsgame-1.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">First/Third Person Shooters</h5>
+            <p class="card-text">Interested in fps/tps games such as Call of Duty, Battlefield, Apex Legends, Fortnite and more? Find others who share the same interests as you!</p>
+            <p class="card-text"><small class="text-muted">Join group chat 1!</small></p>
+        </div>
+    </div>
+    <div class="card mx-1">
+        <img class="card-img-top" src="images/rpg-game.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">MMO/RPG/Storyline</h5>
+            <p class="card-text">Are you the type of gamer who enjoys role playing games, mystical realms and quests filled with magic or fantasy? This may be the place for you!</p>
+            <p class="card-text"><small class="text-muted">Join group chat 2!</small></p>
+        </div>
+    </div>
+    <div class="card mx-1">
+        <img class="card-img-top" src="images/sports-scene-img.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Sports games/Other</h5>
+            <p class="card-text">Here you can find sports fans and gamers alike, whether you're into Football, Hockey, or other sports games, surely something will pique your interest!</p>
+            <p class="card-text"><small class="text-muted">Join group chat 3!</small></p>
+        </div>
     </div>
 </div>
 <script src="/socket.io/socket.io.js"></script>
