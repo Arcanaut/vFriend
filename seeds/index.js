@@ -4,7 +4,7 @@ const seedTags = require('./tag-seeds');
 
 const sequelize = require('../config/connection');
 
-const seedAll = async () => {
+async function seedAll() {
     await sequelize.sync({ force: true });
     console.log('-------------------');
     await seedPlayers();
@@ -17,6 +17,4 @@ const seedAll = async () => {
     process.exit(0);
 };
 
-seedAll();
-
-seedAll().catch(e => console.log("There's error during seeds", e));
+module.exports = { seedAll };

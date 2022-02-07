@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Game, Player, Tag } = require('../models');
+const { seedAll } = require('../seeds/index');
 
 // Get all ..
 
@@ -37,6 +38,10 @@ router.get('/dashboard', function(req, res) {
     res.render('chatfinder')
 });
 
+router.get('/seed', function(req, res) {
+    seedAll();
+    res.send('Successful Seed');
+})
 
 
 

@@ -2,13 +2,13 @@ const { Game } = require('../models');
 
 const gameData = [
     {
-        game_title: 'game1',
+        game_title: 'FPS/TPS',
     },
     {
-        game_title: 'game2',
+        game_title: 'MMO/RPG',
     },
     {
-        game_title: 'game3',
+        game_title: 'Sports/Other',
     },
 ];
 
