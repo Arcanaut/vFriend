@@ -33,7 +33,7 @@
  * [Shelby Pham](https://github.com/ncp9988)
 
 #### Heroku
-  [Heroku link](https://peaceful-river-67746.herokuapp.com/)
+  [Heroku link](https://vfriend2022.herokuapp.com/)
 
 #### GitHub
   [Repository](https://github.com/Arcanaut/Group-Project-2.git)
