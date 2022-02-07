@@ -11,6 +11,7 @@
   * [Heroku](#testing)
   * [Github](#github)
   * [Email](#email)
+
   
 
 ### Usage 
@@ -26,10 +27,10 @@
   * Moment
 
 ### Contributor
-* [Brendan Ahearn](https://github.com/Arcanaut)
-* [Shelby Pham](https://github.com/ncp9988)
-* [Blake Doghyian](https://github.com/Blakedoghyian)
-* [Aaron Ferguson](https://github.com/Optical23)
+ * [Brendan Ahearn](https://github.com/Arcanaut)
+ * [Blake Doghyian](https://github.com/Blakedoghyian)
+ * [Aaron Ferguson](https://github.com/Optical23)
+ * [Shelby Pham](https://github.com/ncp9988)
 
 #### Heroku
   [Heroku link](https://peaceful-river-67746.herokuapp.com/)
@@ -41,7 +42,8 @@
   <a href="mailto:"> Please feel free to reach out if you have any questions</a>
 
 ### Screenshot
-  ![Screenshot](https://github.com/Arcanaut/Group-Project-2/blob/feature/shelbyy/public/images/screenshot.png)
+![Screenshot](https://github.com/Arcanaut/Group-Project-2/blob/feature/shelbyy/public/images/screenshot.png)
+
   
 
   
